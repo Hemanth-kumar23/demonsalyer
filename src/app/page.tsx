@@ -256,22 +256,17 @@ export default function Home() {
                 <div className={`aspect-square bg-gradient-to-br ${hashira.color} rounded-xl mb-4 flex items-center justify-center overflow-hidden relative`}>
                   <div className={`absolute inset-0 bg-gradient-to-br ${hashira.color.replace('100', '200')} opacity-50`}></div>
                   <div className="relative z-10 w-full h-full flex items-center justify-center">
-                    <Image
-                      src={hashira.image}
-                      alt={hashira.name}
-                      width={200}
-                      height={200}
-                      className="w-full h-full object-cover rounded-xl"
-                      onError={(e) => {
-                        // Fallback to emoji if image fails to load
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent) {
-                          parent.innerHTML = `<div class="text-6xl">${hashira.fallback}</div>`;
-                        }
-                      }}
-                    />
+                    <div className="text-6xl">
+                      {hashira.element === 'Thunder' && '⚡'}
+                      {hashira.element === 'Water' && '💧'}
+                      {hashira.element === 'Insect' && '🦋'}
+                      {hashira.element === 'Flame' && '🔥'}
+                      {hashira.element === 'Sound' && '🎵'}
+                      {hashira.element === 'Love' && '💕'}
+                      {hashira.element === 'Serpent' && '🐍'}
+                      {hashira.element === 'Wind' && '💨'}
+                      {hashira.element === 'Stone' && '🗿'}
+                    </div>
                   </div>
                 </div>
                 <h3 className={`text-2xl font-bold ${hashira.textColor} mb-2 text-center`}>

@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 export default function Home() {
   const hashiraData = [
@@ -220,7 +219,7 @@ export default function Home() {
               Demon Slayer Corps
             </h3>
             <p className="text-amber-800 mb-6">
-              "Set your heart ablaze" - Kyojuro Rengoku
+              &ldquo;Set your heart ablaze&rdquo; - Kyojuro Rengoku
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full mx-auto mb-6"></div>
             <p className="text-amber-700 text-sm">

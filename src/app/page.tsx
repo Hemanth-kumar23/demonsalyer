@@ -1,18 +1,91 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Home() {
   const hashiraData = [
-    { name: 'Zenitsu Agatsuma', element: 'Thunder', color: 'from-yellow-100 to-amber-100', borderColor: 'border-yellow-200', textColor: 'text-yellow-800' },
-    { name: 'Giyu Tomioka', element: 'Water', color: 'from-blue-100 to-cyan-100', borderColor: 'border-blue-200', textColor: 'text-blue-800' },
-    { name: 'Shinobu Kocho', element: 'Insect', color: 'from-purple-100 to-pink-100', borderColor: 'border-purple-200', textColor: 'text-purple-800' },
-    { name: 'Kyojuro Rengoku', element: 'Flame', color: 'from-red-100 to-orange-100', borderColor: 'border-red-200', textColor: 'text-red-800' },
-    { name: 'Tengen Uzui', element: 'Sound', color: 'from-pink-100 to-rose-100', borderColor: 'border-pink-200', textColor: 'text-pink-800' },
-    { name: 'Mitsuri Kanroji', element: 'Love', color: 'from-rose-100 to-pink-100', borderColor: 'border-rose-200', textColor: 'text-rose-800' },
-    { name: 'Obanai Iguro', element: 'Serpent', color: 'from-green-100 to-emerald-100', borderColor: 'border-green-200', textColor: 'text-green-800' },
-    { name: 'Sanemi Shinazugawa', element: 'Wind', color: 'from-gray-100 to-slate-100', borderColor: 'border-gray-200', textColor: 'text-gray-800' },
-    { name: 'Gyomei Himejima', element: 'Stone', color: 'from-stone-100 to-gray-100', borderColor: 'border-stone-200', textColor: 'text-stone-800' },
+    { 
+      name: 'Zenitsu Agatsuma', 
+      element: 'Thunder', 
+      color: 'from-yellow-100 to-amber-100', 
+      borderColor: 'border-yellow-200', 
+      textColor: 'text-yellow-800',
+      image: '/images/hashira/zenitsu.jpg',
+      fallback: '⚡'
+    },
+    { 
+      name: 'Giyu Tomioka', 
+      element: 'Water', 
+      color: 'from-blue-100 to-cyan-100', 
+      borderColor: 'border-blue-200', 
+      textColor: 'text-blue-800',
+      image: '/images/hashira/giyu.jpg',
+      fallback: '💧'
+    },
+    { 
+      name: 'Shinobu Kocho', 
+      element: 'Insect', 
+      color: 'from-purple-100 to-pink-100', 
+      borderColor: 'border-purple-200', 
+      textColor: 'text-purple-800',
+      image: '/images/hashira/shinobu.jpg',
+      fallback: '🦋'
+    },
+    { 
+      name: 'Kyojuro Rengoku', 
+      element: 'Flame', 
+      color: 'from-red-100 to-orange-100', 
+      borderColor: 'border-red-200', 
+      textColor: 'text-red-800',
+      image: '/images/hashira/kyojuro.jpg',
+      fallback: '🔥'
+    },
+    { 
+      name: 'Tengen Uzui', 
+      element: 'Sound', 
+      color: 'from-pink-100 to-rose-100', 
+      borderColor: 'border-pink-200', 
+      textColor: 'text-pink-800',
+      image: '/images/hashira/tengen.jpg',
+      fallback: '🎵'
+    },
+    { 
+      name: 'Mitsuri Kanroji', 
+      element: 'Love', 
+      color: 'from-rose-100 to-pink-100', 
+      borderColor: 'border-rose-200', 
+      textColor: 'text-rose-800',
+      image: '/images/hashira/mitsuri.jpg',
+      fallback: '💕'
+    },
+    { 
+      name: 'Obanai Iguro', 
+      element: 'Serpent', 
+      color: 'from-green-100 to-emerald-100', 
+      borderColor: 'border-green-200', 
+      textColor: 'text-green-800',
+      image: '/images/hashira/obanai.jpg',
+      fallback: '🐍'
+    },
+    { 
+      name: 'Sanemi Shinazugawa', 
+      element: 'Wind', 
+      color: 'from-gray-100 to-slate-100', 
+      borderColor: 'border-gray-200', 
+      textColor: 'text-gray-800',
+      image: '/images/hashira/sanemi.jpg',
+      fallback: '💨'
+    },
+    { 
+      name: 'Gyomei Himejima', 
+      element: 'Stone', 
+      color: 'from-stone-100 to-gray-100', 
+      borderColor: 'border-stone-200', 
+      textColor: 'text-stone-800',
+      image: '/images/hashira/gyomei.jpg',
+      fallback: '🗿'
+    },
   ];
 
   return (
@@ -182,16 +255,23 @@ export default function Home() {
               >
                 <div className={`aspect-square bg-gradient-to-br ${hashira.color} rounded-xl mb-4 flex items-center justify-center overflow-hidden relative`}>
                   <div className={`absolute inset-0 bg-gradient-to-br ${hashira.color.replace('100', '200')} opacity-50`}></div>
-                  <div className="relative z-10 text-6xl">
-                    {hashira.element === 'Thunder' && '⚡'}
-                    {hashira.element === 'Water' && '💧'}
-                    {hashira.element === 'Insect' && '🦋'}
-                    {hashira.element === 'Flame' && '🔥'}
-                    {hashira.element === 'Sound' && '🎵'}
-                    {hashira.element === 'Love' && '💕'}
-                    {hashira.element === 'Serpent' && '🐍'}
-                    {hashira.element === 'Wind' && '💨'}
-                    {hashira.element === 'Stone' && '🗿'}
+                  <div className="relative z-10 w-full h-full flex items-center justify-center">
+                    <Image
+                      src={hashira.image}
+                      alt={hashira.name}
+                      width={200}
+                      height={200}
+                      className="w-full h-full object-cover rounded-xl"
+                      onError={(e) => {
+                        // Fallback to emoji if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `<div class="text-6xl">${hashira.fallback}</div>`;
+                        }
+                      }}
+                    />
                   </div>
                 </div>
                 <h3 className={`text-2xl font-bold ${hashira.textColor} mb-2 text-center`}>

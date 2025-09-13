@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚡ Demon Slayer Hashira Landing Page
 
-## Getting Started
+A beautiful single-page landing website inspired by Demon Slayer anime, featuring Zenitsu's thunder breathing theme with pastel colors and smooth animations.
 
-First, run the development server:
+## 🌟 Features
+
+- **Zenitsu-focused Design**: Pastel yellow/amber color palette inspired by Thunder Breathing
+- **Animated Hero Section**: Large thunder bolt with glowing effects and floating lightning elements
+- **Hashira Showcase**: Responsive grid displaying all 9 Hashira with unique element themes
+- **Smooth Animations**: Framer Motion animations throughout the page
+- **Fully Responsive**: Optimized for mobile, tablet, and desktop devices
+- **Modern Tech Stack**: Built with Next.js 14, Tailwind CSS, and TypeScript
+
+## 🚀 Getting Started
+
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Design Elements
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Hero Section**: "Breath of Thunder" title with animated thunder effects
+- **Hashira Cards**: Each character has their own color theme and element emoji
+- **Thunder Animations**: Subtle lightning strikes and floating elements
+- **Pastel Theme**: Soft yellows, ambers, and oranges throughout
+- **Hover Effects**: Interactive cards with scale and shadow animations
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js 14** with App Router
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **TypeScript** for type safety
+- **Responsive Design** for all devices
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 Responsive Design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Mobile**: Single column layout with optimized text sizes
+- **Tablet**: 2-column Hashira grid
+- **Desktop**: 3-column Hashira grid with full animations
 
-## Deploy on Vercel
+## ⚡ Hashira Characters
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The landing page showcases all 9 Hashira with their unique breathing techniques:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Zenitsu Agatsuma** - Thunder Hashira ⚡
+2. **Giyu Tomioka** - Water Hashira 💧
+3. **Shinobu Kocho** - Insect Hashira 🦋
+4. **Kyojuro Rengoku** - Flame Hashira 🔥
+5. **Tengen Uzui** - Sound Hashira 🎵
+6. **Mitsuri Kanroji** - Love Hashira 💕
+7. **Obanai Iguro** - Serpent Hashira 🐍
+8. **Sanemi Shinazugawa** - Wind Hashira 💨
+9. **Gyomei Himejima** - Stone Hashira 🗿
+
+## 🎯 Inspiration
+
+This project is inspired by the Demon Slayer anime series, specifically focusing on Zenitsu's character and his Thunder Breathing techniques. The design captures the essence of his power through pastel colors and lightning-themed animations.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+*"Set your heart ablaze" - Kyojuro Rengoku* 🔥

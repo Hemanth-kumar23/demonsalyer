@@ -1,10 +1,59 @@
 @import 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap';
 
 body {
-  background-color: #111827;
+  background-color: #111827; /* Dark blue-gray background */
+  color: #F3F4F6; /* Light gray text for readability */
 }
 
 h1, h2 {
-  font-family: 'Cinzel', sans-serif;
+  font-family: 'Cinzel', serif;
   color: #F3F4F6;
+}
+
+/* New Animation for Zenitsu */
+.zenitsu-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 2rem auto; /* Center the container and add margin below */
+}
+
+.zenitsu-image {
+  border-radius: 50%;
+  border: 4px solid #fbbF24; /* Amber border */
+  box-shadow: 0 0 20px #fbbF24, 0 0 40px #f59e0b;
+}
+
+.lightning {
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background: #fde047; /* Bright yellow */
+  transform-origin: top;
+  opacity: 0;
+  animation: thunder-strike 2s infinite ease-out;
+}
+
+.lightning.bolt1 {
+  top: -20%; left: 50%;
+  transform: rotate(20deg) scaleY(0.8);
+  animation-delay: 0.5s;
+}
+
+.lightning.bolt2 {
+  top: -10%; left: 20%;
+  transform: rotate(-30deg);
+  animation-delay: 1.2s;
+}
+
+.lightning.bolt3 {
+  top: 0%; left: 80%;
+  transform: rotate(40deg) scaleY(1.2);
+  animation-delay: 0.2s;
+}
+
+@keyframes thunder-strike {
+  0%, 100% { opacity: 0; transform: scaleY(0); }
+  5% { opacity: 1; transform: scaleY(1); }
+  10% { opacity: 0; transform: scaleY(0); }
 }

@@ -105,7 +105,7 @@ export default function Home() {
           <div className="absolute top-32 right-16 w-1 h-16 bg-gradient-to-b from-amber-400 to-transparent opacity-40 animate-pulse" style={{animationDelay: '0.5s'}}></div>
           <div className="absolute bottom-32 left-20 w-1.5 h-24 bg-gradient-to-b from-orange-300 to-transparent opacity-50 animate-pulse" style={{animationDelay: '1s'}}></div>
           <div className="absolute bottom-20 right-10 w-1 h-12 bg-gradient-to-b from-yellow-400 to-transparent opacity-30 animate-pulse" style={{animationDelay: '1.5s'}}></div>
-          
+
           {/* Floating Thunder Elements */}
           <motion.div 
             className="absolute top-1/4 left-1/4 text-yellow-400 opacity-20"
@@ -187,7 +187,7 @@ export default function Home() {
 
           {/* Title */}
           <motion.h1 
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-amber-900 mb-6"
+            className="text-5xl sm:text-6xl font-bold text-amber-900 mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
@@ -211,81 +211,90 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.9 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
           >
             Enter the Demon Slayer Corps
           </motion.button>
 
-          {/* Decorative Elements */}
+          {/* Scroll-to-section on CTA button click */}
           <motion.div 
-            className="flex justify-center items-center mt-12 space-x-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
+            className="absolute top-20 left-10 w-full h-full"
+            animate={{ 
+              y: [0, -100, 0],
+              opacity: [1, 0.5, 1]
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
           >
-            <div className="w-16 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full"></div>
-            <span className="text-amber-700 font-medium">Thunder Breathing</span>
-            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+            <a href="#hashira-showcase" className="text-amber-800 font-bold">Learn More</a>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Hashira Showcase Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            className="text-center mb-16"
+          {/* Hashira Showcase Section */}
+          <section id="hashira-showcase" className="py-20 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto text-center">
+              <h2 className="text-4xl sm:text-5xl font-bold text-amber-900 mb-4">
+                The Nine Hashira
+              </h2>
+              <p className="text-amber-800 mb-6">
+                The strongest swordsmen in the Demon Slayer Corps, each wielding unique breathing techniques
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {hashiraData.map((hashira, index) => (
+                  <motion.div
+                    key={hashira.name}
+                    className={`group bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border ${hashira.borderColor} hover:-translate-y-2`}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className={`aspect-square bg-gradient-to-br ${hashira.color} rounded-xl mb-4 flex items-center justify-center overflow-hidden relative`}>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${hashira.color.replace('100', '200')} opacity-50`}></div>
+                      <div className="relative z-10 w-full h-full flex items-center justify-center">
+                        {imageErrors[hashira.name] ? (
+                          <div className="text-6xl">{hashira.fallback}</div>
+                        ) : (
+                          <Image
+                            src={hashira.image}
+                            alt={hashira.name}
+                            width={200}
+                            height={200}
+                            className="w-full h-full object-cover rounded-xl"
+                            onError={() => handleImageError(hashira.name)}
+                          />
+                        )}
+                      </div>
+                    </div>
+                    <h3 className={`text-2xl font-bold ${hashira.textColor} mb-2 text-center`}>
+                      {hashira.name}
+                    </h3>
+                    <p className={`${hashira.textColor.replace('800', '600')} text-sm text-center font-medium`}>
+                      {hashira.element} Hashira
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Dark Mode Toggle */}
+          <motion.button 
+            className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.9 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-amber-900 mb-6">
-              The Nine Hashira
-            </h2>
-            <p className="text-lg text-amber-800 max-w-2xl mx-auto">
-              The strongest swordsmen in the Demon Slayer Corps, each wielding unique breathing techniques
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {hashiraData.map((hashira, index) => (
-              <motion.div
-                key={hashira.name}
-                className={`group bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border ${hashira.borderColor} hover:-translate-y-2`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className={`aspect-square bg-gradient-to-br ${hashira.color} rounded-xl mb-4 flex items-center justify-center overflow-hidden relative`}>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${hashira.color.replace('100', '200')} opacity-50`}></div>
-                  <div className="relative z-10 w-full h-full flex items-center justify-center">
-                    {imageErrors[hashira.name] ? (
-                      <div className="text-6xl">{hashira.fallback}</div>
-                    ) : (
-                      <Image
-                        src={hashira.image}
-                        alt={hashira.name}
-                        width={200}
-                        height={200}
-                        className="w-full h-full object-cover rounded-xl"
-                        onError={() => handleImageError(hashira.name)}
-                      />
-                    )}
-                  </div>
-                </div>
-                <h3 className={`text-2xl font-bold ${hashira.textColor} mb-2 text-center`}>
-                  {hashira.name}
-                </h3>
-                <p className={`${hashira.textColor.replace('800', '600')} text-sm text-center font-medium`}>
-                  {hashira.element} Hashira
-                </p>
-              </motion.div>
-            ))}
-          </div>
+            Toggle Dark Mode
+          </motion.button>
         </div>
       </section>
 
@@ -303,10 +312,6 @@ export default function Home() {
             </h3>
             <p className="text-amber-800 mb-6">
               &ldquo;Set your heart ablaze&rdquo; - Kyojuro Rengoku
-            </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full mx-auto mb-6"></div>
-            <p className="text-amber-700 text-sm">
-              © 2025 Demon Slayer | Built with Next.js & Tailwind CSS
             </p>
           </motion.div>
         </div>
